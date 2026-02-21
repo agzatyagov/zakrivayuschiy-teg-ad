@@ -11,6 +11,43 @@
 */
 
 .page {
-  min-inline-size: 320px;
+  min-inline-size: 375px;
   min-block-size: 100dvb;
+  background-color: var(--page-background-color);
+  background-image: var(--page-background-image);
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.card__img-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.card__img-label {
+  position: absolute;
+  z-index: 2;
+  opacity: 0.6;
+  color: var(--accent-clr, #000);
+  font-family: var(--accent-font, 'PressStart2P'), sans-serif;
+  font-size: 14px;
+  line-height: normal;
+  text-shadow: 1px 0 0 var(--bg-color),
+  -1px 0 0 var(--bg-color),
+  0 1px 0 var(--bg-color),
+  0 -1px 0 var(--bg-color);
+  mix-blend-mode: hard-light;
+  right: 25px;
+  top: 25px;
+}
+
+@supports (
+  (-webkit-text-stroke: 1px var(--page-background-color, #ffffff)) or
+  (text-stroke: 1px var(--page-background-color, #ffffff))
+) {
+  .card__img-label {
+    text-shadow: none;
+    -webkit-text-stroke: 1px var(--page-background-color, #ffffff);
+    text-stroke: 1px var(--page-background-color, #ffffff);
+  }
 }
